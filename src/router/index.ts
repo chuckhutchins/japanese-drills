@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'HomePage',
-      component: HomeView
+      component: HomeView,
     },
     {
       path: '/drills',

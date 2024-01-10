@@ -1,14 +1,12 @@
 <template>
   <RouterLink class="back-link">
     <IconChevronDoubleLeft />
-    <slot>
-      Back
-    </slot>
+    <slot> Back </slot>
   </RouterLink>
 </template>
 
 <script setup lang="ts">
-import IconChevronDoubleLeft from "@/components/icons/IconChevronDoubleLeft.vue";
+import IconChevronDoubleLeft from '@/components/icons/IconChevronDoubleLeft.vue';
 </script>
 
 <style scoped lang="scss">
@@ -19,7 +17,7 @@ import IconChevronDoubleLeft from "@/components/icons/IconChevronDoubleLeft.vue"
   gap: 0.5rem;
   background-color: transparent;
   color: var(--color-text);
-  transition: .2s;
+  transition: 0.2s;
   text-decoration: none;
   border-bottom: 0;
   line-height: 1;
@@ -37,7 +35,7 @@ import IconChevronDoubleLeft from "@/components/icons/IconChevronDoubleLeft.vue"
     display: block;
     height: 1.25rem;
     width: 1.25rem;
-    transition: .2s;
+    transition: 0.2s;
   }
 }
 </style>

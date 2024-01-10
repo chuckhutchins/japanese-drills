@@ -8,7 +8,7 @@ export default function useWindowSize() {
   const pageWidth = ref(0);
   const pageHeight = ref(0);
 
-  const resizeObserver = new ResizeObserver((el) => {
+  const resizeObserver = new ResizeObserver(el => {
     pageWidth.value = el[0].contentRect.width;
     pageHeight.value = el[0].contentRect.height;
   });

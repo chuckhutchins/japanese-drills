@@ -1,11 +1,12 @@
 <template>
   <header class="header">
-    <RouterLink :to="{name: 'HomePage'}" class="main">Japanese Drills</RouterLink>
+    <RouterLink :to="{ name: 'HomePage' }" class="main"
+      >Japanese Drills</RouterLink
+    >
   </header>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 header {
@@ -16,7 +17,7 @@ header {
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1;
-    letter-spacing: -.0125em;
+    letter-spacing: -0.0125em;
     text-decoration: none;
     border-bottom: transparent;
   }

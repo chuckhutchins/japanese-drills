@@ -42,10 +42,10 @@ import { computed, ref, watch } from 'vue';
 import randomizeArray from '@/utils/randomizeArray';
 import useWindowSize from '@/utils/useWindowSize';
 import { age } from '@/assets/data/age';
-import BackToLink from "@/components/common/BackToLink.vue";
-import IconFlip from "@/components/icons/IconFlip.vue";
-import IconArrowLeft from "@/components/icons/IconArrowLeft.vue";
-import IconArrowRight from "@/components/icons/IconArrowRight.vue";
+import BackToLink from '@/components/common/BackToLink.vue';
+import IconFlip from '@/components/icons/IconFlip.vue';
+import IconArrowLeft from '@/components/icons/IconArrowLeft.vue';
+import IconArrowRight from '@/components/icons/IconArrowRight.vue';
 
 const currentIndex = ref(0);
 

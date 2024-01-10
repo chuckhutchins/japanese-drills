@@ -1,14 +1,11 @@
 <template>
   <footer class="footer">
     <a href="https://github.com/chuckhutchins/japanese-drills">GitHub</a>
-    <p class="copyright">
-      Made with 💀
-    </p>
+    <p class="copyright">Made with 💀</p>
   </footer>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
 .footer {
