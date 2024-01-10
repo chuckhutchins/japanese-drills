@@ -2,6 +2,9 @@ import { ref, onMounted, onUnmounted } from 'vue';
 
 export default function useWindowSize() {
   const bodyEl = document.querySelector('body');
+  if (!bodyEl) {
+    return;
+  }
   const pageWidth = ref(0);
   const pageHeight = ref(0);
 
