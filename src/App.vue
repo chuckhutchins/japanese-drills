@@ -15,6 +15,7 @@ import TheHeader from '@/components/common/TheHeader.vue';
 
 <style scoped lang="scss">
 .container {
+  position: relative;
   width: calc(100% - 2rem);
   max-width: 1024px;
   margin: 0 auto;

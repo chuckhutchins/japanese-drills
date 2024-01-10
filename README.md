@@ -7,6 +7,9 @@ Starting modes:
 - Ages (up to 34)
 
 Future modes:
+- X Days
+- Dates
+- Currency
 - Time
 - That/This/Which/etc
 - Things

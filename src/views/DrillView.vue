@@ -1,6 +1,5 @@
 <template>
   <div class="drills">
-    <h1>Drills</h1>
     <RouterView />
   </div>
 </template>

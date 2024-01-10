@@ -1,172 +1,177 @@
-export const age = [
-    {
-        number: 1,
-        japanese: 'いっさい',
-        kanji: '',
-    },
-    {
-        number: 2,
-        japanese: 'にさい',
-        kanji: '',
-    },
-    {
-        number: 3,
-        japanese: 'さんさい',
-        kanji: '',
-    },
-    {
-        number: 4,
-        japanese: 'よんさい',
-        kanji: '',
-    },
-    {
-        number: 5,
-        japanese: 'ごさい',
-        kanji: '',
-    },
-    {
-        number: 6,
-        japanese: 'ろくさい',
-        kanji: '',
-    },
-    {
-        number: 7,
-        japanese: 'ななさい',
-        kanji: '',
-    },
-    {
-        number: 8,
-        japanese: 'はっさい',
-        kanji: '',
-    },
-    {
-        number: 9,
-        japanese: 'きゅうさい',
-        kanji: '',
-    },
-    {
-        number: 10,
-        japanese: 'じゅうさい',
-        kanji: '',
-    },
-    {
-        number: 11,
-        japanese: 'じゅういっさい',
-        kanji: '',
-    },
-    {
-        number: 12,
-        japanese: 'じゅにさい',
-        kanji: '',
-    },
-    {
-        number: 13,
-        japanese: 'じゅうさんさい',
-        kanji: '',
-    },
-    {
-        number: 14,
-        japanese: 'じゅうよんさい',
-        kanji: '',
-    },
-    {
-        number: 15,
-        japanese: 'じゅうごさい',
-        kanji: '',
-    },
-    {
-        number: 16,
-        japanese: 'じゅうろくさい',
-        kanji: '',
-    },
-    {
-        number: 17,
-        japanese: 'じゅうななさい',
-        kanji: '',
-    },
-    {
-        number: 18,
-        japanese: 'じゅうはっさい',
-        kanji: '',
-    },
-    {
-        number: 19,
-        japanese: 'じゅうきゅうさい',
-        kanji: '',
-    },
-    {
-        number: 20,
-        japanese: 'はたち',
-        kanji: '',
-    },
-    {
-        number: 21,
-        japanese: 'にじゅういっさい',
-        kanji: '',
-    },
-    {
-        number: 22,
-        japanese: 'にじゅうにさい',
-        kanji: '',
-    },
-    {
-        number: 23,
-        japanese: 'にじゅうさんさい',
-        kanji: '',
-    },
-    {
-        number: 24,
-        japanese: 'にじゅうよんさい',
-        kanji: '',
-    },
-    {
-        number: 25,
-        japanese: 'にじゅうごさい',
-        kanji: '',
-    },
-    {
-        number: 26,
-        japanese: 'にじゅうろくさい',
-        kanji: '',
-    },
-    {
-        number: 27,
-        japanese: 'にじゅうななさい',
-        kanji: '',
-    },
-    {
-        number: 28,
-        japanese: 'にじゅうはっさい',
-        kanji: '',
-    },
-    {
-        number: 29,
-        japanese: 'にじゅうきゅうさい',
-        kanji: '',
-    },
-    {
-        number: 30,
-        japanese: 'さんじゅうさい',
-        kanji: '',
-    },
-    {
-        number: 31,
-        japanese: 'さんじゅういっさい',
-        kanji: '',
-    },
-    {
-        number: 32,
-        japanese: 'さんじゅうにさい',
-        kanji: '',
-    },
-    {
-        number: 33,
-        japanese: 'さんじゅうさんさい',
-        kanji: '',
-    },
-    {
-        number: 34,
-        japanese: 'さんじゅうよんさい',
-        kanji: '',
-    },
-];
+export const age = {
+    id: 'age',
+    name: 'Age',
+    description: 'Lorem ipsum...',
+    exercises: [
+        {
+            english: '1',
+            japanese: 'いっさい',
+            kanji: '',
+        },
+        {
+            english: '2',
+            japanese: 'にさい',
+            kanji: '',
+        },
+        {
+            english: '3',
+            japanese: 'さんさい',
+            kanji: '',
+        },
+        {
+            english: '4',
+            japanese: 'よんさい',
+            kanji: '',
+        },
+        {
+            english: '5',
+            japanese: 'ごさい',
+            kanji: '',
+        },
+        {
+            english: '6',
+            japanese: 'ろくさい',
+            kanji: '',
+        },
+        {
+            english: '7',
+            japanese: 'ななさい',
+            kanji: '',
+        },
+        {
+            english: '8',
+            japanese: 'はっさい',
+            kanji: '',
+        },
+        {
+            english: '9',
+            japanese: 'きゅうさい',
+            kanji: '',
+        },
+        {
+            english: '10',
+            japanese: 'じゅうさい',
+            kanji: '',
+        },
+        {
+            english: '11',
+            japanese: 'じゅういっさい',
+            kanji: '',
+        },
+        {
+            english: '12',
+            japanese: 'じゅにさい',
+            kanji: '',
+        },
+        {
+            english: '13',
+            japanese: 'じゅうさんさい',
+            kanji: '',
+        },
+        {
+            english: '14',
+            japanese: 'じゅうよんさい',
+            kanji: '',
+        },
+        {
+            english: '15',
+            japanese: 'じゅうごさい',
+            kanji: '',
+        },
+        {
+            english: '16',
+            japanese: 'じゅうろくさい',
+            kanji: '',
+        },
+        {
+            english: '17',
+            japanese: 'じゅうななさい',
+            kanji: '',
+        },
+        {
+            english: '18',
+            japanese: 'じゅうはっさい',
+            kanji: '',
+        },
+        {
+            english: '19',
+            japanese: 'じゅうきゅうさい',
+            kanji: '',
+        },
+        {
+            english: '20',
+            japanese: 'はたち',
+            kanji: '',
+        },
+        {
+            english: '21',
+            japanese: 'にじゅういっさい',
+            kanji: '',
+        },
+        {
+            english: '22',
+            japanese: 'にじゅうにさい',
+            kanji: '',
+        },
+        {
+            english: '23',
+            japanese: 'にじゅうさんさい',
+            kanji: '',
+        },
+        {
+            english: '24',
+            japanese: 'にじゅうよんさい',
+            kanji: '',
+        },
+        {
+            english: '25',
+            japanese: 'にじゅうごさい',
+            kanji: '',
+        },
+        {
+            english: '26',
+            japanese: 'にじゅうろくさい',
+            kanji: '',
+        },
+        {
+            english: '27',
+            japanese: 'にじゅうななさい',
+            kanji: '',
+        },
+        {
+            english: '28',
+            japanese: 'にじゅうはっさい',
+            kanji: '',
+        },
+        {
+            english: '29',
+            japanese: 'にじゅうきゅうさい',
+            kanji: '',
+        },
+        {
+            english: '30',
+            japanese: 'さんじゅうさい',
+            kanji: '',
+        },
+        {
+            english: '31',
+            japanese: 'さんじゅういっさい',
+            kanji: '',
+        },
+        {
+            english: '32',
+            japanese: 'さんじゅうにさい',
+            kanji: '',
+        },
+        {
+            english: '33',
+            japanese: 'さんじゅうさんさい',
+            kanji: '',
+        },
+        {
+            english: '34',
+            japanese: 'さんじゅうよんさい',
+            kanji: '',
+        },
+    ],
+};
