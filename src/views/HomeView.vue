@@ -6,7 +6,7 @@
         <RouterLink :to="{ name: 'AgePage' }">Age</RouterLink>
       </li>
       <li>
-        <RouterLink :to="{ name: 'TimePage' }">Time</RouterLink>
+        <RouterLink :to="{ name: 'DaysPage' }">X Days</RouterLink>
       </li>
     </ul>
   </div>

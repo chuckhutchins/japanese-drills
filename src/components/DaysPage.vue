@@ -2,14 +2,14 @@
   <div class="wrapper">
     <div class="header">
       <BackToLink :to="{ name: 'HomePage' }" />
-      <h1>X Years Old</h1>
+      <h1>X Days</h1>
     </div>
     <div class="card">
       <div v-if="showFront" class="face">
-        {{ randomizedAge[currentIndex].english }}
+        {{ randomizedExercise[currentIndex].english }}
       </div>
       <div v-else class="face">
-        {{ randomizedAge[currentIndex].japanese }}
+        {{ randomizedExercise[currentIndex].japanese }}
       </div>
     </div>
     <Teleport :disabled="!isMobile" to="body">
@@ -41,7 +41,7 @@
 import { computed, ref, watch } from 'vue';
 import randomizeArray from '@/utils/randomizeArray';
 import useWindowSize from '@/utils/useWindowSize';
-import { age } from '@/assets/data/age';
+import { days } from '@/assets/data/days';
 import BackToLink from '@/components/common/BackToLink.vue';
 import IconFlip from '@/components/icons/IconFlip.vue';
 import IconArrowLeft from '@/components/icons/IconArrowLeft.vue';
@@ -54,8 +54,8 @@ const isMobile = computed(() => {
   return pageWidth.value < 640;
 });
 
-const randomizedAge = computed(() => {
-  return randomizeArray([...age.exercises]);
+const randomizedExercise = computed(() => {
+  return randomizeArray([...days.exercises]);
 });
 
 const handlePreviousCard = () => {

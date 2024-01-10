@@ -19,9 +19,9 @@ const router = createRouter({
           component: () => import('@/components/AgePage.vue'),
         },
         {
-          path: 'time',
-          name: 'TimePage',
-          component: () => import('@/components/TimePage.vue'),
+          path: 'days',
+          name: 'DaysPage',
+          component: () => import('@/components/DaysPage.vue'),
         },
       ],
     },
