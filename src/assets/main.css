@@ -154,6 +154,10 @@ a:focus {
   outline: 3px dashed;
 }
 
+button {
+  touch-action: manipulation;
+}
+
 ul {
   padding-left: 0;
   list-style: none;
