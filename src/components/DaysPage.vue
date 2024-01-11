@@ -66,7 +66,7 @@ const handlePreviousCard = () => {
 };
 
 const handleNextCard = () => {
-  if (currentIndex.value >= randomizedAge.value.length) {
+  if (currentIndex.value >= randomizedExercise.value.length) {
     return;
   }
   currentIndex.value++;
