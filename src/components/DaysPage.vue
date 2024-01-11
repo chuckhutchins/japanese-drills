@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import randomizeArray from '@/utils/randomizeArray';
 import useWindowSize from '@/utils/useWindowSize';
 import { days } from '@/assets/data/days';
@@ -66,7 +66,7 @@ const handlePreviousCard = () => {
 };
 
 const handleNextCard = () => {
-  if (currentIndex.value >= randomizedExercise.value.length) {
+  if (currentIndex.value >= randomizedExercise.value.length - 1) {
     return;
   }
   currentIndex.value++;
@@ -80,6 +80,28 @@ const showFront = ref(true);
 watch(currentIndex, () => {
   showFront.value = true;
 });
+
+onMounted(() => {
+  document.addEventListener('keyup', handleKeyPress, true);
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener('keyup', handleKeyPress, true);
+});
+
+const handleKeyPress = ({ code }: { code: string }) => {
+  if (code === 'ArrowRight') {
+    handleNextCard();
+  }
+
+  if (code === 'ArrowLeft') {
+    handlePreviousCard();
+  }
+
+  if (code === 'ArrowUp' || code === 'ArrowDown') {
+    handleFlipCard();
+  }
+};
 </script>
 
 <style scoped lang="scss">
