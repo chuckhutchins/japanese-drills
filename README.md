@@ -4,7 +4,8 @@ Sometimes flashcards can't get granular enough for learning everyday phrases. Yo
 After choosing a rapid-fire mode, the app will generate a random English or Japanese word/phrase/sentence, and you can speak it/think it/will-it-into-the-æther.
 
 Starting modes:
-- Ages (up to 34)
+- X Years Old (up to 34)
+- X Days
 
 Future modes:
 - X Days
