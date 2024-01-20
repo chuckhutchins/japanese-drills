@@ -10,6 +10,16 @@ const router = createRouter({
       component: HomeView,
     },
     {
+      path: '/profile',
+      name: 'ProfilePage',
+      component: () => import('@/views/ProfileView.vue'),
+    },
+    {
+      path: '/settings',
+      name: 'SettingsPage',
+      component: () => import('@/views/SettingsView.vue'),
+    },
+    {
       path: '/drills',
       component: () => import('@/views/DrillView.vue'),
       children: [
