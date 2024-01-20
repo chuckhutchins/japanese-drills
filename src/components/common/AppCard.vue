@@ -1,5 +1,5 @@
 <template>
-  <div class="card" :class="{
+  <div class="app-card" :class="{
       'destructive': props.destructive,
     }">
     <slot />
@@ -17,7 +17,7 @@ const props = defineProps({
 </script>
 
 <style scoped lang="scss">
-.card {
+.app-card {
   background-color: var(--color-white);
   box-shadow: 0 0 0 0.125rem var(--color-black);
   border-radius: 0.125rem;

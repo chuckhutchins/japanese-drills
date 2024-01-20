@@ -1,7 +1,7 @@
 <template>
   <component
     :is="element"
-    class="btn"
+    class="app-btn"
     :class="{
       'btn-primary': primary,
       'btn-reverse': reverse,
@@ -81,7 +81,7 @@ const buttonType = computed(() => {
 </script>
 
 <style scoped lang="scss">
-.btn {
+.app-btn {
   display: block;
   font-size: 1rem;
   line-height: 1;
