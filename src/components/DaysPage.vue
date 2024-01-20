@@ -4,14 +4,14 @@
       <BackToLink :to="{ name: 'HomePage' }" />
       <h1>X Days</h1>
     </div>
-    <div class="card">
-      <div v-if="showFront" class="face">
+    <AppCard class="card">
+      <template v-if="showFront">
         {{ randomizedExercise[currentIndex].english }}
-      </div>
-      <div v-else class="face">
+      </template>
+      <template v-else>
         {{ randomizedExercise[currentIndex].japanese }}
-      </div>
-    </div>
+      </template>
+    </AppCard>
     <Teleport :disabled="!isMobile" to="body">
       <div class="controls">
         <div class="control-item flip">
@@ -21,13 +21,13 @@
           </button>
         </div>
         <div class="control-item previous">
-          <button class="btn-icon" @click="handlePreviousCard">
+          <button class="btn-icon" :disabled="isFirstCard" @click="handlePreviousCard">
             <IconArrowLeft />
             <span class="sr-only">Previous card</span>
           </button>
         </div>
         <div class="control-item next">
-          <button class="btn-icon" @click="handleNextCard">
+          <button class="btn-icon" :disabled="isLastCard" @click="handleNextCard">
             <IconArrowRight />
             <span class="sr-only">Next card</span>
           </button>
@@ -42,6 +42,7 @@ import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import randomizeArray from '@/utils/randomizeArray';
 import useWindowSize from '@/utils/useWindowSize';
 import { days } from '@/assets/data/days';
+import AppCard from '@/components/common/AppCard.vue';
 import BackToLink from '@/components/common/BackToLink.vue';
 import IconFlip from '@/components/icons/IconFlip.vue';
 import IconArrowLeft from '@/components/icons/IconArrowLeft.vue';
@@ -58,15 +59,18 @@ const randomizedExercise = computed(() => {
   return randomizeArray([...days.exercises]);
 });
 
+const isFirstCard = computed(() => currentIndex.value <= 0);
+const isLastCard = computed(() => currentIndex.value >= randomizedExercise.value.length - 1);
+
 const handlePreviousCard = () => {
-  if (currentIndex.value <= 0) {
+  if (isFirstCard.value) {
     return;
   }
   currentIndex.value--;
 };
 
 const handleNextCard = () => {
-  if (currentIndex.value >= randomizedExercise.value.length - 1) {
+  if (isLastCard.value) {
     return;
   }
   currentIndex.value++;
@@ -114,6 +118,10 @@ const handleKeyPress = ({ code }: { code: string }) => {
   display: grid;
   gap: 1rem;
 
+  .back-link {
+    justify-self: start;
+  }
+
   h1 {
     text-align: center;
   }
@@ -126,19 +134,10 @@ const handleKeyPress = ({ code }: { code: string }) => {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 2px solid white;
-  border-radius: 1rem;
-  padding: 2rem;
+  padding: 1rem;
   min-height: 15rem;
-
-  .face {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-size: 2rem;
-    line-height: 1;
-  }
+  font-size: 2rem;
+  line-height: 1;
 }
 
 .controls {
@@ -147,13 +146,14 @@ const handleKeyPress = ({ code }: { code: string }) => {
   inset-inline: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  background-color: var(--color-light-gray);
+  background-color: var(--color-gray-200);
   height: 10rem;
 
   @media (min-width: 40rem) {
     position: relative;
     grid-template-columns: repeat(3, 1fr);
     height: 5rem;
+    border-radius: 0.125rem;
   }
 
   .control-item {
@@ -193,9 +193,13 @@ const handleKeyPress = ({ code }: { code: string }) => {
     border: 0;
     cursor: pointer;
 
-    &:focus,
-    &:hover {
-      background-color: var(--color-gray);
+    &:focus-visible,
+    &:hover:not(:disabled) {
+      background-color: var(--color-gray-300);
+    }
+
+    &:disabled {
+      cursor: initial;
     }
   }
 }
