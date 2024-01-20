@@ -1,16 +1,24 @@
 <template>
   <header class="header">
-    <RouterLink :to="{ name: 'HomePage' }" class="main"
-      >nihongo・drills</RouterLink
+    <RouterLink :to="{ name: 'HomePage' }" class="main">
+      nihongo・drills
+    </RouterLink
     >
     <div class="menu">
-      <button class="btn-settings" type="button" @click="handleSettingsMenuOpen">
+      <button class="btn-settings" type="button" @click="handleSettingsMenuToggle">
         <span class="avatar"></span>
         <span class="sr-only">Open settings menu</span>
       </button>
-      <div class="dropdown" :class="{ open: isMenuOpen }">
-        <router-link :to="{ name: 'ProfilePage' }">Profile</router-link>
-        <router-link :to="{ name: 'SettingsPage' }">Settings</router-link>
+      <div class="dropdown" :class="{ open: isMenuOpen }" @click="handleCloseSettingsMenu">
+        <router-link :to="{ name: 'ProfilePage' }">
+          Profile
+        </router-link>
+        <router-link :to="{ name: 'SettingsPage' }">
+          Settings
+        </router-link>
+        <router-link :to="{ name: 'LogoutPage' }">
+          Log Out
+        </router-link>
       </div>
     </div>
   </header>
@@ -18,15 +26,15 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useSettingsStore } from '@/stores/Settings';
-
-const settingsStore = useSettingsStore();
 
 const isMenuOpen = ref(false);
 
-const handleSettingsMenuOpen = () => {
-  console.log('opening settings menu');
+const handleSettingsMenuToggle = () => {
   isMenuOpen.value = !isMenuOpen.value;
+};
+
+const handleCloseSettingsMenu = () => {
+  isMenuOpen.value = false;
 };
 </script>
 
