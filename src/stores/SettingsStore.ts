@@ -26,5 +26,14 @@ export const useSettingsStore = defineStore('settings', {
     saveSettings() {
       // TODO: save user's settings
     },
+    setCycle(cycle: string) {
+      this.settings.cycle = cycle;
+    },
+    setOrder(order: string) {
+      this.settings.order = order;
+    },
+    setType(type: string) {
+      this.settings.type = type;
+    },
   },
 });

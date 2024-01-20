@@ -4,12 +4,18 @@
       <BackToLink :to="{ name: 'HomePage' }" />
       <h1>X Days</h1>
     </div>
+    <div class="settings">
+      <button @click="settingsStore.setOrder('random')">make random</button>
+      <button @click="settingsStore.setOrder('sequential')">make sequential</button>
+      <button @click="settingsStore.setCycle('infinite')">make infinite</button>
+      <button @click="settingsStore.setCycle('once')">make once</button>
+    </div>
     <AppCard class="card">
       <template v-if="showFront">
-        {{ randomizedExercise[currentIndex].english }}
+        {{ exercises[currentIndex].english }}
       </template>
       <template v-else>
-        {{ randomizedExercise[currentIndex].japanese }}
+        {{ exercises[currentIndex].japanese }}
       </template>
     </AppCard>
     <Teleport :disabled="!isMobile" to="body">
@@ -39,6 +45,7 @@
 
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { useSettingsStore } from '@/stores/SettingsStore';
 import randomizeArray from '@/utils/randomizeArray';
 import useWindowSize from '@/utils/useWindowSize';
 import { days } from '@/assets/data/days';
@@ -48,24 +55,43 @@ import IconFlip from '@/components/icons/IconFlip.vue';
 import IconArrowLeft from '@/components/icons/IconArrowLeft.vue';
 import IconArrowRight from '@/components/icons/IconArrowRight.vue';
 
+const settingsStore = useSettingsStore();
+
 const currentIndex = ref(0);
+const maxIndex = computed(() => exercises.value.length - 1);
+const cycleRefreshIndex = ref(0);
 
 const { pageWidth } = useWindowSize();
 const isMobile = computed(() => {
   return pageWidth.value < 640;
 });
 
-const randomizedExercise = computed(() => {
-  return randomizeArray([...days.exercises]);
+const originalExercises = ref([...days.exercises]);
+const exercises = computed(() => {
+  // keep track of a cycle index to refresh the exercise array
+  cycleRefreshIndex.value;
+
+  if (isRandom.value) {
+    return randomizeArray([...originalExercises.value]);
+  }
+
+  return originalExercises.value;
 });
 
-const isFirstCard = computed(() => currentIndex.value <= 0);
-const isLastCard = computed(() => currentIndex.value >= randomizedExercise.value.length - 1);
+const isFirstCard = computed(() => currentIndex.value <= 0 && !isInfinite.value);
+const isLastCard = computed(() => currentIndex.value >= maxIndex.value && !isInfinite.value);
 
 const handlePreviousCard = () => {
   if (isFirstCard.value) {
     return;
   }
+
+  if (currentIndex.value <= 0 && isInfinite.value) {
+    cycleRefreshIndex.value++;
+    currentIndex.value = maxIndex.value;
+    return;
+  }
+
   currentIndex.value--;
 };
 
@@ -73,6 +99,13 @@ const handleNextCard = () => {
   if (isLastCard.value) {
     return;
   }
+
+  if (currentIndex.value >= maxIndex.value && isInfinite.value) {
+    cycleRefreshIndex.value++;
+    currentIndex.value = 0;
+    return;
+  }
+
   currentIndex.value++;
 };
 
@@ -84,6 +117,21 @@ const showFront = ref(true);
 watch(currentIndex, () => {
   showFront.value = true;
 });
+
+// reset array when settings change
+const isInfinite = computed(() => settingsStore.isInfinite);
+watch(isInfinite, () => {
+  resetExercises();
+});
+const isRandom = computed(() => settingsStore.isRandom);
+watch(isRandom, () => {
+  resetExercises();
+});
+
+const resetExercises = () => {
+  currentIndex.value = 0;
+  cycleRefreshIndex.value++;
+};
 
 onMounted(() => {
   document.addEventListener('keyup', handleKeyPress, true);
