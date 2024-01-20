@@ -22,7 +22,7 @@ const handleDeleteAccount = () => {
   padding: 1rem;
   background-color: var(--color-white);
 
-  .btn {
+  .app-btn {
     justify-self: start;
   }
 }
