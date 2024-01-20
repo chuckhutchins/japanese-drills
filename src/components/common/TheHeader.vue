@@ -1,15 +1,41 @@
 <template>
   <header class="header">
     <RouterLink :to="{ name: 'HomePage' }" class="main"
-      >Japanese Drills</RouterLink
+      >nihongo・drills</RouterLink
     >
+    <div class="menu">
+      <button class="btn-settings" type="button" @click="handleSettingsMenuOpen">
+        <span class="avatar"></span>
+        <span class="sr-only">Open settings menu</span>
+      </button>
+      <div class="dropdown" :class="{ open: isMenuOpen }">
+        <router-link :to="{ name: 'ProfilePage' }">Profile</router-link>
+        <router-link :to="{ name: 'SettingsPage' }">Settings</router-link>
+      </div>
+    </div>
   </header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue';
+import { useSettingsStore } from '@/stores/Settings';
+
+const settingsStore = useSettingsStore();
+
+const isMenuOpen = ref(false);
+
+const handleSettingsMenuOpen = () => {
+  console.log('opening settings menu');
+  isMenuOpen.value = !isMenuOpen.value;
+};
+</script>
 
 <style scoped lang="scss">
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
   border-bottom: 2px solid;
   padding-bottom: 1rem;
 
@@ -20,6 +46,55 @@ header {
     letter-spacing: -0.0125em;
     text-decoration: none;
     border-bottom: transparent;
+  }
+
+  .menu {
+    position: relative;
+  }
+
+  .btn-settings {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    .avatar {
+      display: block;
+      background-color: pink;
+      aspect-ratio: 1;
+      width: 2rem;
+      border-radius: 50%;
+    }
+  }
+
+  .dropdown {
+    display: none;
+
+    &.open {
+      position: absolute;
+      inset-block-start: 100%;
+      inset-inline-end: 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--color-white);
+      box-shadow: 0 0 0 0.125rem var(--color-black);
+      padding: 0.25rem;
+      border-radius: 0.125rem;
+      min-inline-size: 7rem;
+
+      a {
+        line-height: 1;
+        padding: 0.25rem;
+        border-radius: 0.125rem;
+        border: none;
+
+        &:hover,
+        &:focus-visible {
+          background-color: var(--color-gray-300);
+        }
+      }
+    }
   }
 }
 </style>
