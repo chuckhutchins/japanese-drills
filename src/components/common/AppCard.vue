@@ -1,7 +1,10 @@
 <template>
-  <div class="app-card" :class="{
-      'destructive': props.destructive,
-    }">
+  <div
+    class="app-card"
+    :class="{
+      destructive: props.destructive,
+    }"
+  >
     <slot />
   </div>
 </template>

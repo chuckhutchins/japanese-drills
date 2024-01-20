@@ -89,9 +89,9 @@ const buttonType = computed(() => {
   text-align: center;
   border: none;
   border-radius: 0.125rem;
-  padding: 0.5rem .75rem;
+  padding: 0.5rem 0.75rem;
   cursor: pointer;
-  transition: .2s;
+  transition: 0.2s;
   text-decoration: none;
   min-width: 7rem;
 

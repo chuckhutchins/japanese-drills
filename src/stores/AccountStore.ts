@@ -20,7 +20,7 @@ export const useAccountStore = defineStore('account', {
         createdDate: new Date(),
         email: 'asdf@asdf.com',
         name: 'Chuck Hutchins',
-        username: 'chuckchuckchuckchuck'
+        username: 'chuckchuckchuckchuck',
       };
       console.log('logging in');
     },

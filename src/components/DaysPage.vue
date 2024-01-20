@@ -6,7 +6,9 @@
     </div>
     <div class="settings">
       <button @click="settingsStore.setOrder('random')">make random</button>
-      <button @click="settingsStore.setOrder('sequential')">make sequential</button>
+      <button @click="settingsStore.setOrder('sequential')">
+        make sequential
+      </button>
       <button @click="settingsStore.setCycle('infinite')">make infinite</button>
       <button @click="settingsStore.setCycle('once')">make once</button>
     </div>
@@ -27,13 +29,21 @@
           </button>
         </div>
         <div class="control-item previous">
-          <button class="btn-icon" :disabled="isFirstCard" @click="handlePreviousCard">
+          <button
+            class="btn-icon"
+            :disabled="isFirstCard"
+            @click="handlePreviousCard"
+          >
             <IconArrowLeft />
             <span class="sr-only">Previous card</span>
           </button>
         </div>
         <div class="control-item next">
-          <button class="btn-icon" :disabled="isLastCard" @click="handleNextCard">
+          <button
+            class="btn-icon"
+            :disabled="isLastCard"
+            @click="handleNextCard"
+          >
             <IconArrowRight />
             <span class="sr-only">Next card</span>
           </button>
@@ -78,8 +88,12 @@ const exercises = computed(() => {
   return originalExercises.value;
 });
 
-const isFirstCard = computed(() => currentIndex.value <= 0 && !isInfinite.value);
-const isLastCard = computed(() => currentIndex.value >= maxIndex.value && !isInfinite.value);
+const isFirstCard = computed(
+  () => currentIndex.value <= 0 && !isInfinite.value,
+);
+const isLastCard = computed(
+  () => currentIndex.value >= maxIndex.value && !isInfinite.value,
+);
 
 const handlePreviousCard = () => {
   if (isFirstCard.value) {

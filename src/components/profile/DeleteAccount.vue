@@ -2,7 +2,9 @@
   <AppCard destructive class="delete-account">
     <h2>Delete Account</h2>
     <p>You will permanently lose all purchases, subscriptions, and data.</p>
-    <AppButton destructive @click="handleDeleteAccount">Delete Account</AppButton>
+    <AppButton destructive @click="handleDeleteAccount"
+      >Delete Account</AppButton
+    >
   </AppCard>
 </template>
 

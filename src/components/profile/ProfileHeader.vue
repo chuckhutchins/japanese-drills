@@ -2,7 +2,9 @@
   <AppCard v-if="hasUser" class="profile-header">
     <div class="avatar" />
     <h1 class="username">{{ accountStore.user?.username ?? '-' }}</h1>
-    <p class="member-since">Member since {{ formatDate(accountStore.user?.createdDate) ?? '-' }}</p>
+    <p class="member-since">
+      Member since {{ formatDate(accountStore.user?.createdDate) ?? '-' }}
+    </p>
   </AppCard>
 </template>
 

@@ -15,7 +15,7 @@ export type Settings = {
   cycle: string;
   order: string;
   type: string;
-}
+};
 
 export type User = {
   birthday: Date;

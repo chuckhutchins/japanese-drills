@@ -12,7 +12,7 @@ const routes: RouteRecordRaw[] = [
     name: '404Page',
     component: () => import('@/views/404View.vue'),
     meta: {
-      title: 'Page Note Found'
+      title: 'Page Note Found',
     },
   },
   {
@@ -20,7 +20,7 @@ const routes: RouteRecordRaw[] = [
     name: 'HomePage',
     component: HomeView,
     meta: {
-      title: 'nihongo・drills'
+      title: 'nihongo・drills',
     },
   },
   {

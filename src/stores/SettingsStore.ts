@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import type { Settings } from "@/models";
+import type { Settings } from '@/models';
 
 type SettingsState = {
   currentDrill: string | undefined;
