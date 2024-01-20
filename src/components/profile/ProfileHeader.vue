@@ -1,13 +1,22 @@
 <template>
-  <AppCard class="profile-header">
+  <AppCard v-if="hasUser" class="profile-header">
     <div class="avatar" />
-    <h1 class="username">chuckchuckchuckchuck</h1>
-    <p class="member-since">Member since 1/19/2024</p>
+    <h1 class="username">{{ accountStore.user?.username ?? '-' }}</h1>
+    <p class="member-since">Member since {{ formatDate(accountStore.user?.createdDate) ?? '-' }}</p>
   </AppCard>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useAccountStore } from '@/stores/AccountStore';
+import { formatDate } from '@/utils/formatDate';
 import AppCard from '@/components/common/AppCard.vue';
+
+const accountStore = useAccountStore();
+
+const hasUser = computed(() => {
+  return !!accountStore.user;
+});
 </script>
 
 <style>

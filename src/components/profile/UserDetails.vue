@@ -1,22 +1,26 @@
 <template>
-  <AppCard class="user-details">
+  <AppCard v-if="accountStore.isLoggedIn" class="user-details">
     <div class="detail">
       <h2>Name</h2>
-      <p>Asdf Asdf</p>
+      <p>{{ accountStore.user?.name ?? '-' }}</p>
     </div>
     <div class="detail">
       <h2>Email</h2>
-      <p>asdf@asdf.com</p>
+      <p>{{ accountStore.user?.email ?? '-' }}</p>
     </div>
     <div class="detail">
       <h2>Birthday</h2>
-      <p>00/00</p>
+      <p>{{ formatBirthday(accountStore.user?.birthday) ?? '-' }}</p>
     </div>
   </AppCard>
 </template>
 
 <script setup lang="ts">
+import { useAccountStore } from '@/stores/AccountStore';
+import { formatBirthday } from '@/utils/formatDate';
 import AppCard from '@/components/common/AppCard.vue';
+
+const accountStore = useAccountStore();
 </script>
 
 <style scoped lang="scss">
