@@ -96,7 +96,7 @@ const buttonType = computed(() => {
   min-width: 7rem;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     text-decoration: none;
   }
 
@@ -107,7 +107,7 @@ const buttonType = computed(() => {
     cursor: not-allowed;
 
     &:hover,
-    &:focus {
+    &:focus-visible {
       background-color: var(--color-btn-disabled);
     }
   }
@@ -117,7 +117,7 @@ const buttonType = computed(() => {
     padding: 0;
     background-color: transparent;
 
-    &:focus,
+    &:focus-visible,
     &:hover {
       text-decoration: underline;
     }
@@ -130,13 +130,13 @@ const buttonType = computed(() => {
       color: var(--color-error);
 
       &:hover,
-      &:focus {
+      &:focus-visible {
         background-color: var(--color-error-background);
       }
     }
 
     &:hover,
-    &:focus {
+    &:focus-visible {
       background-color: var(--color-gray-200);
     }
   }
@@ -146,7 +146,7 @@ const buttonType = computed(() => {
     color: #fff;
     text-shadow: var(--text-shadow);
 
-    &:focus,
+    &:focus-visible,
     &:hover {
       background-color: var(--color-btn-primary-hover);
     }
@@ -157,7 +157,7 @@ const buttonType = computed(() => {
     color: #fff;
     text-shadow: var(--text-shadow);
 
-    &:focus,
+    &:focus-visible,
     &:hover {
       background-color: var(--color-error-hover);
     }
